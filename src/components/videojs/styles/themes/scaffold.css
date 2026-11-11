@@ -1,0 +1,76 @@
+@layer base.theme, base.preset, base.preferences;
+
+@layer base.preset {
+  .media-skin[data-theme="scaffold"] {
+    /* AURA PLAYER Design Tokens */
+    --aura-bg: #1C1B19;
+    --aura-surface: #292724;
+    --aura-surface-elevated: #33302C;
+    --aura-primary: #F2E6D2;
+    --aura-accent: #FF6500;
+    --aura-secondary: #B8B0A3;
+    --aura-border: rgba(242, 230, 210, 0.12);
+    --aura-border-active: rgba(255, 101, 0, 0.5);
+
+    /* Video.js Token Overrides */
+    --media-background: transparent;
+    --media-foreground: var(--aura-primary);
+    --media-accent: var(--aura-accent);
+    --media-accent-foreground: #1C1B19;
+    --media-primary: var(--aura-accent);
+    --media-primary-foreground: #1C1B19;
+    --media-muted: rgba(242, 230, 210, 0.18);
+    --media-popover: var(--aura-surface);
+    --media-popover-boundary-offset: calc(var(--media-spacing) * 3);
+    --media-tooltip-boundary-offset: var(--media-popover-boundary-offset);
+    --media-popover-foreground: var(--aura-primary);
+    --media-ring: var(--aura-accent);
+    --media-button-highlight: rgba(242, 230, 210, 0.1);
+
+    --media-video-border-radius: 14px;
+    --media-control-radius: 8px;
+    --media-controls-radius: 10px;
+    --media-menu-item-radius: 6px;
+    --media-popup-radius: 10px;
+    --media-dialog-radius: 12px;
+
+    --media-scrollbar-thumb-color: var(--aura-secondary);
+    --media-shadow-surface: 0 10px 30px -5px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--aura-border);
+    --media-shadow-surface-inset: inset 0 1px 0 0 rgba(242, 230, 210, 0.08);
+    --media-shadow-thumb: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.5);
+    --media-backdrop-filter-surface: blur(12px) saturate(140%);
+    --media-backdrop-filter-indicator: blur(8px);
+    --media-backdrop-filter-dialog: blur(16px) saturate(140%);
+  }
+
+  .media-skin[data-theme="scaffold"][data-preset$="audio"] {
+    --media-foreground: var(--aura-primary);
+    --media-muted: rgba(242, 230, 210, 0.15);
+  }
+
+  @supports (color: light-dark(red, red)) {
+    .media-skin[data-theme="scaffold"][data-preset$="audio"] {
+      --media-foreground: light-dark(var(--aura-primary), var(--aura-primary));
+      --media-muted: light-dark(rgba(242, 230, 210, 0.15), rgba(242, 230, 210, 0.15));
+    }
+  }
+
+  @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+    .media-skin[data-theme="scaffold"]:where([data-preset$="video"]) {
+      --media-background: var(--aura-bg);
+    }
+  }
+
+  @media (forced-colors: active) {
+    .media-skin[data-theme="scaffold"] {
+      --media-background: Canvas;
+      --media-popover: Canvas;
+      --media-popover-foreground: CanvasText;
+      --media-foreground: CanvasText;
+      --media-accent: Highlight;
+      --media-primary: Highlight;
+      --media-primary-foreground: HighlightText;
+      --media-ring: Highlight;
+    }
+  }
+}

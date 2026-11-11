@@ -1,0 +1,207 @@
+/* ==========================================================================
+   AURA PLAYER Showcase Application Styles
+   ========================================================================== */
+
+:root {
+  --aura-bg: #1C1B19;
+  --aura-surface: #292724;
+  --aura-surface-elevated: #33302C;
+  --aura-primary: #F2E6D2;
+  --aura-accent: #FF6500;
+  --aura-secondary: #B8B0A3;
+  --aura-border: rgba(242, 230, 210, 0.12);
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: dark;
+  background-color: var(--aura-bg);
+  color: var(--aura-primary);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--aura-bg);
+  color: var(--aura-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Header & Brand Banner */
+.showcase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--aura-border);
+}
+
+.brand-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--aura-primary);
+  text-transform: uppercase;
+}
+
+.brand-badge {
+  background-color: rgba(255, 101, 0, 0.15);
+  color: var(--aura-accent);
+  border: 1px solid rgba(255, 101, 0, 0.4);
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.brand-tagline {
+  font-size: 0.9rem;
+  color: var(--aura-secondary);
+}
+
+/* Responsive Header Override */
+@media (max-width: 640px) {
+  #root {
+    padding: 1rem 0.75rem;
+    gap: 1.25rem;
+  }
+
+  .showcase-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .brand-title {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .brand-name {
+    font-size: 1.25rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.8rem;
+  }
+
+  .player-container-card {
+    padding: 0.5rem;
+    border-radius: 12px;
+  }
+}
+
+/* Player Frame Wrapper */
+.player-container-card {
+  background-color: var(--aura-surface);
+  border: 1px solid var(--aura-border);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+}
+
+/* Metadata & Controls Info Deck */
+.showcase-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .showcase-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.info-card {
+  background-color: var(--aura-surface);
+  border: 1px solid var(--aura-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--aura-secondary);
+  text-transform: uppercase;
+}
+
+.media-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.spec-pill {
+  background-color: var(--aura-surface-elevated);
+  border: 1px solid var(--aura-border);
+  color: var(--aura-primary);
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.hotkey-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hotkey-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--aura-primary);
+}
+
+.hotkey-key {
+  background-color: var(--aura-surface-elevated);
+  border: 1px solid var(--aura-border);
+  color: var(--aura-accent);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: monospace;
+}
+
+/* Footer */
+.showcase-footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--aura-secondary);
+  padding-top: 1rem;
+  border-top: 1px solid var(--aura-border);
+}
